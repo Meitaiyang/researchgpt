@@ -157,7 +157,7 @@ class Chatbot():
     def gpt(self, context, source):
         print('Sending request to OpenAI')
         openai.api_key = os.getenv('OPENAI_API_KEY')
-        r = openai.ChatCompletion.create(model="gpt-4-32k", messages=context)
+        r = openai.ChatCompletion.create(model="gpt-4", messages=context)
         answer = r.choices[0]["message"]["content"]
         print('Done sending request to OpenAI')
         response = {'answer': answer, 'sources': source}
