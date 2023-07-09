@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+
+  redis:
+      image: "redis:latest"
+      
+  researchgpt:
+    build:
+      context: . 
+      target: researchgpt-img
+    ports:
+      - '8000:8000'
+    

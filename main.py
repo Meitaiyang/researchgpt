@@ -32,7 +32,7 @@ templates = Jinja2Templates(directory="templates")
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-db = redis.StrictRedis(host='localhost', port=6379, db=0)
+db = redis.StrictRedis(host='redis', port=6379, db=0)
 
 
 class Chatbot():
@@ -157,7 +157,7 @@ class Chatbot():
     def gpt(self, context, source):
         print('Sending request to OpenAI')
         openai.api_key = os.getenv('OPENAI_API_KEY')
-        r = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=context)
+        r = openai.ChatCompletion.create(model="gpt-4-32k", messages=context)
         answer = r.choices[0]["message"]["content"]
         print('Done sending request to OpenAI')
         response = {'answer': answer, 'sources': source}
