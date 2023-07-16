@@ -6,6 +6,7 @@ services:
       image: "redis:latest"
       
   researchgpt:
+    image: python:3.9-slim
     build:
       context: . 
       target: researchgpt-img

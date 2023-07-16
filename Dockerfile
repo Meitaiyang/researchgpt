@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:latest as researchgpt-img
+FROM python:3.9-slim as researchgpt-img
 
 WORKDIR /
 
